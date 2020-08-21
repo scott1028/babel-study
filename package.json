@@ -1,0 +1,28 @@
+{
+  "name": "babel-study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-async-to-generator": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "core-js": "^3.6.5",
+    "node-fetch": "^2.6.0",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-transform-async-to-generator"
+    ],
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "scripts": {
+    "clean": "rm -rf src/node_modules && rm -rf dist",
+    "start": "babel src -d dist --ignore ./src/node_modules --copy-files && node dist/index.js",
+    "error": "cp -r ./node_modules ./src && babel src -d dist && node dist/index.js"
+  }
+}
